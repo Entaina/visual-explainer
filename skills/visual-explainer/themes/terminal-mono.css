@@ -1,0 +1,70 @@
+/*
+ * Terminal Mono — dark, monospace everything, green/cyan accents, faint grid. Developer-native. Dark-first.
+ * Extracted from the upstream slide preset; usable by any template.
+ * Background treatment: faint dot grid; large weight-400 mono titles instead of bold display.
+ *
+ * Fonts (Google Fonts): Geist Mono.
+ */
+
+:root {
+  --font-display: 'Geist Mono', 'SF Mono', Consolas, monospace;
+  --font-body: 'Geist Mono', 'SF Mono', Consolas, monospace;
+  --font-mono: 'Geist Mono', 'SF Mono', Consolas, monospace;
+
+  --bg: #0a0e14;
+  --surface: #12161e;
+  --surface2: #1a1f2a;
+  --surface-elevated: #222836;
+  --border: rgba(80, 250, 123, 0.06);
+  --border-bright: rgba(80, 250, 123, 0.12);
+  --text: #c8d6e5;
+  --text-dim: #5a6a7a;
+
+  --accent: #50fa7b;
+  --accent-dim: rgba(80, 250, 123, 0.08);
+  --node-a: #50fa7b;
+  --node-a-dim: rgba(80, 250, 123, 0.08);
+  --node-b: #8be9fd;
+  --node-b-dim: rgba(139, 233, 253, 0.10);
+  --node-c: #bd93f9;
+  --node-c-dim: rgba(189, 147, 249, 0.10);
+
+  --green: #50fa7b;
+  --green-dim: rgba(80, 250, 123, 0.10);
+  --red: #ff5555;
+  --red-dim: rgba(255, 85, 85, 0.10);
+  --orange: #ffb86c;
+  --orange-dim: rgba(255, 184, 108, 0.10);
+
+  --code-bg: #060a10;
+  --code-text: #c8d6e5;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f4f6f8;
+    --surface: #ffffff;
+    --surface2: #eaecf0;
+    --surface-elevated: #f8f9fa;
+    --border: rgba(0, 80, 40, 0.08);
+    --border-bright: rgba(0, 80, 40, 0.16);
+    --text: #1a2332;
+    --text-dim: #5a6a7a;
+    --accent: #0d7a3e;
+    --accent-dim: rgba(13, 122, 62, 0.08);
+    --node-a: #0d7a3e;
+    --node-a-dim: rgba(13, 122, 62, 0.08);
+    --node-b: #0e7490;
+    --node-b-dim: rgba(14, 116, 144, 0.08);
+    --node-c: #7c3aed;
+    --node-c-dim: rgba(124, 58, 237, 0.08);
+    --green: #0d7a3e;
+    --green-dim: rgba(13, 122, 62, 0.08);
+    --red: #c10007;
+    --red-dim: rgba(193, 0, 7, 0.08);
+    --orange: #b45309;
+    --orange-dim: rgba(180, 83, 9, 0.08);
+    --code-bg: #1a2332;
+    --code-text: #c8d6e5;
+  }
+}

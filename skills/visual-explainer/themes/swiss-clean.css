@@ -1,0 +1,71 @@
+/*
+ * Swiss Clean — white, geometric sans, single bold accent, visible grid. Minimal and precise. Light-first.
+ * Extracted from the upstream slide preset; usable by any template.
+ * Background treatment: clean white or near-black, no gradients; visible grid lines; single accent used sparingly.
+ * Data-heavy and analytical content shines here.
+ *
+ * Fonts (Google Fonts): DM Sans + Fira Code.
+ */
+
+:root {
+  --font-display: 'DM Sans', system-ui, sans-serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'Fira Code', 'SF Mono', monospace;
+
+  --bg: #ffffff;
+  --surface: #f8f8f8;
+  --surface2: #f0f0f0;
+  --surface-elevated: #ffffff;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-bright: rgba(0, 0, 0, 0.16);
+  --text: #111111;
+  --text-dim: #666666;
+
+  --accent: #0055ff;
+  --accent-dim: rgba(0, 85, 255, 0.06);
+  --node-a: #0055ff;
+  --node-a-dim: rgba(0, 85, 255, 0.06);
+  --node-b: #111111;
+  --node-b-dim: rgba(17, 17, 17, 0.06);
+  --node-c: #666666;
+  --node-c-dim: rgba(102, 102, 102, 0.08);
+
+  --green: #0a7d33;
+  --green-dim: rgba(10, 125, 51, 0.08);
+  --red: #d21f2c;
+  --red-dim: rgba(210, 31, 44, 0.08);
+  --orange: #c25e00;
+  --orange-dim: rgba(194, 94, 0, 0.08);
+
+  --code-bg: #18181b;
+  --code-text: #e4e4e7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111111;
+    --surface: #1a1a1a;
+    --surface2: #222222;
+    --surface-elevated: #2a2a2a;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-bright: rgba(255, 255, 255, 0.16);
+    --text: #f0f0f0;
+    --text-dim: #888888;
+    --accent: #3b82f6;
+    --accent-dim: rgba(59, 130, 246, 0.08);
+    --node-a: #3b82f6;
+    --node-a-dim: rgba(59, 130, 246, 0.08);
+    --node-b: #f0f0f0;
+    --node-b-dim: rgba(240, 240, 240, 0.08);
+    --node-c: #888888;
+    --node-c-dim: rgba(136, 136, 136, 0.10);
+    --green: #4ade80;
+    --green-dim: rgba(74, 222, 128, 0.10);
+    --red: #f87171;
+    --red-dim: rgba(248, 113, 113, 0.10);
+    --orange: #fbbf24;
+    --orange-dim: rgba(251, 191, 36, 0.10);
+    --code-bg: #0a0a0a;
+    --code-text: #e4e4e7;
+  }
+}

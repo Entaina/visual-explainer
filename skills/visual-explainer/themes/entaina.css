@@ -1,0 +1,80 @@
+/*
+ * Entaina — default theme.
+ * Mapped from the official tokens at https://design-system.entaina.ai/ (Style Dictionary).
+ * Light-only by design: treating single-theme as deliberate is correct for this theme.
+ * Do not wrap these values in prefers-color-scheme media queries.
+ *
+ * Fonts (Google Fonts):
+ * <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+ * Comfortaa is the display face (headings, labels); Lato is the body face.
+ * Entaina does not define a mono face; JetBrains Mono is this skill's choice.
+ */
+
+:root {
+  --font-display: 'Comfortaa', sans-serif;
+  --font-body: 'Lato', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+
+  /* Ground — Technology pillar (hoki) is the default */
+  --bg: #f1f6fa;                             /* hoki-50 */
+  --surface: #f5f5f5;                        /* chicago-50 */
+  --surface2: #e8e8e8;                       /* chicago-100 (surface-alt) */
+  --surface-elevated: #ffffff;
+  --border: #d4d4d4;                         /* chicago-200 */
+  --border-bright: #bababa;                  /* chicago-300 */
+  --text: #353535;                           /* chicago-900 */
+  --text-dim: #717171;                       /* chicago-600; chicago-500 #898989 fails small-text contrast on light surfaces */
+
+  /* Accent — primary pillar color */
+  --accent: #6b859f;                         /* hoki-500 */
+  --accent-dark: #4d6073;                    /* hoki-700 */
+  --accent-dim: rgba(107, 133, 159, 0.12);
+
+  /* Diagram node colors — the three Entaina pillars, always present */
+  --node-a: #6b859f;                         /* Technology (hoki-500) */
+  --node-a-dim: rgba(107, 133, 159, 0.12);
+  --node-b: #de865c;                         /* Innovation (copperfield-400) */
+  --node-b-dim: rgba(222, 134, 92, 0.14);
+  --node-c: #bd9947;                         /* People (golden-tainoi-400; the 200 base is too pale for strokes on light) */
+  --node-c-dim: rgba(248, 207, 115, 0.20);
+
+  /* Semantic status */
+  --green: #008d3d;                          /* success */
+  --green-dim: rgba(0, 141, 61, 0.10);
+  --red: #e7000b;                            /* danger-600; the base #fb2c36 is for fills, not small text */
+  --red-dim: rgba(251, 44, 54, 0.10);
+  --orange: #ca3500;                         /* warning-dark for text; base warning is #ff8904 */
+  --orange-dim: rgba(255, 137, 4, 0.14);
+  --info: #585eca;                           /* blue-600 */
+  --info-dim: rgba(88, 94, 202, 0.10);
+
+  /* Code blocks */
+  --code-bg: #2f324a;                        /* blue-900 */
+  --code-text: #e0e5ff;                      /* blue-100 */
+}
+
+/* Innovation pillar variant — copperfield leads */
+[data-theme="innovation"] {
+  --bg: #fff1e8;                             /* copperfield-50 */
+  --accent: #c37149;                         /* copperfield-500; the official primary #de865c stays for fills via --node-b */
+  --accent-dark: #834e35;                    /* copperfield-700 */
+  --accent-dim: rgba(222, 134, 92, 0.14);
+  --node-a: #de865c;
+  --node-a-dim: rgba(222, 134, 92, 0.14);
+  --node-b: #6b859f;
+  --node-b-dim: rgba(107, 133, 159, 0.12);
+}
+
+/* People pillar variant — golden tainoi leads */
+[data-theme="people"] {
+  --bg: #fff4d0;                             /* golden-tainoi-50 */
+  --accent: #a3853f;                         /* golden-tainoi-500 for readable accents */
+  --accent-dark: #6d5b35;                    /* golden-tainoi-700 */
+  --accent-dim: rgba(248, 207, 115, 0.24);
+  --node-a: #bd9947;
+  --node-a-dim: rgba(248, 207, 115, 0.20);
+  --node-b: #de865c;
+  --node-b-dim: rgba(222, 134, 92, 0.14);
+  --node-c: #6b859f;
+  --node-c-dim: rgba(107, 133, 159, 0.12);
+}

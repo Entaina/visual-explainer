@@ -1,0 +1,70 @@
+/*
+ * Midnight Editorial — deep navy, serif display, warm gold accents. Cinematic, premium. Dark-first.
+ * Extracted from the upstream slide preset; usable by any template.
+ * Background treatment: radial gold glow at top center; decorative corner marks in gold.
+ *
+ * Fonts (Google Fonts): Instrument Serif (body/display) + JetBrains Mono.
+ */
+
+:root {
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Instrument Serif', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+
+  --bg: #0f1729;
+  --surface: #162040;
+  --surface2: #1d2b52;
+  --surface-elevated: #243362;
+  --border: rgba(200, 180, 140, 0.08);
+  --border-bright: rgba(200, 180, 140, 0.16);
+  --text: #e8e4d8;
+  --text-dim: #9a9484;
+
+  --accent: #d4a73a;
+  --accent-dim: rgba(212, 167, 58, 0.1);
+  --node-a: #d4a73a;
+  --node-a-dim: rgba(212, 167, 58, 0.1);
+  --node-b: #88a1bb;
+  --node-b-dim: rgba(136, 161, 187, 0.12);
+  --node-c: #c98a6a;
+  --node-c-dim: rgba(201, 138, 106, 0.12);
+
+  --green: #7fb069;
+  --green-dim: rgba(127, 176, 105, 0.12);
+  --red: #d06c6c;
+  --red-dim: rgba(208, 108, 108, 0.12);
+  --orange: #d99a5b;
+  --orange-dim: rgba(217, 154, 91, 0.12);
+
+  --code-bg: #0a0f1e;
+  --code-text: #d4d0c4;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #faf8f2;
+    --surface: #ffffff;
+    --surface2: #f5f0e6;
+    --surface-elevated: #fffdf5;
+    --border: rgba(30, 30, 50, 0.08);
+    --border-bright: rgba(30, 30, 50, 0.16);
+    --text: #1a1814;
+    --text-dim: #7a7468;
+    --accent: #b8860b;
+    --accent-dim: rgba(184, 134, 11, 0.08);
+    --node-a: #b8860b;
+    --node-a-dim: rgba(184, 134, 11, 0.08);
+    --node-b: #5c748c;
+    --node-b-dim: rgba(92, 116, 140, 0.10);
+    --node-c: #a25d3b;
+    --node-c-dim: rgba(162, 93, 59, 0.10);
+    --green: #3d7a33;
+    --green-dim: rgba(61, 122, 51, 0.10);
+    --red: #b04545;
+    --red-dim: rgba(176, 69, 69, 0.10);
+    --orange: #b06d24;
+    --orange-dim: rgba(176, 109, 36, 0.10);
+    --code-bg: #2a2520;
+    --code-text: #e8e4d8;
+  }
+}

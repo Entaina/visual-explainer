@@ -1,0 +1,70 @@
+/*
+ * Warm Signal — cream paper, bold sans, terracotta/coral accents. Confident and modern. Light-first.
+ * Extracted from the upstream slide preset; usable by any template.
+ * Background treatment: warm radial glow at bottom left; terracotta accent borders on cards.
+ *
+ * Fonts (Google Fonts): Plus Jakarta Sans + Azeret Mono.
+ */
+
+:root {
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'Azeret Mono', 'SF Mono', monospace;
+
+  --bg: #faf6f0;
+  --surface: #ffffff;
+  --surface2: #f5ece0;
+  --surface-elevated: #fffdf5;
+  --border: rgba(60, 40, 20, 0.08);
+  --border-bright: rgba(60, 40, 20, 0.16);
+  --text: #2c2a25;
+  --text-dim: #7c756a;
+
+  --accent: #c2410c;
+  --accent-dim: rgba(194, 65, 12, 0.08);
+  --node-a: #c2410c;
+  --node-a-dim: rgba(194, 65, 12, 0.08);
+  --node-b: #5f7a5a;
+  --node-b-dim: rgba(95, 122, 90, 0.10);
+  --node-c: #8a6d3b;
+  --node-c-dim: rgba(138, 109, 59, 0.10);
+
+  --green: #3d7a33;
+  --green-dim: rgba(61, 122, 51, 0.10);
+  --red: #b91c1c;
+  --red-dim: rgba(185, 28, 28, 0.08);
+  --orange: #b45309;
+  --orange-dim: rgba(180, 83, 9, 0.10);
+
+  --code-bg: #2c2520;
+  --code-text: #f5ece0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1916;
+    --surface: #262220;
+    --surface2: #302b28;
+    --surface-elevated: #3a3430;
+    --border: rgba(200, 180, 160, 0.08);
+    --border-bright: rgba(200, 180, 160, 0.16);
+    --text: #f0e8dc;
+    --text-dim: #a09888;
+    --accent: #e85d2a;
+    --accent-dim: rgba(232, 93, 42, 0.1);
+    --node-a: #e85d2a;
+    --node-a-dim: rgba(232, 93, 42, 0.1);
+    --node-b: #8fae88;
+    --node-b-dim: rgba(143, 174, 136, 0.12);
+    --node-c: #c9a86a;
+    --node-c-dim: rgba(201, 168, 106, 0.12);
+    --green: #7fb069;
+    --green-dim: rgba(127, 176, 105, 0.12);
+    --red: #e06c6c;
+    --red-dim: rgba(224, 108, 108, 0.12);
+    --orange: #d99a5b;
+    --orange-dim: rgba(217, 154, 91, 0.12);
+    --code-bg: #141210;
+    --code-text: #f0e8dc;
+  }
+}

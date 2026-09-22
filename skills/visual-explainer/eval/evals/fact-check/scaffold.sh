@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# Fixture: a tiny codebase plus a generated report containing two false claims
+# (function name and expiry time) for the fact-check genre to correct in place.
+set -euo pipefail
+
+mkdir -p src out
+
+cat > src/auth.js <<'EOF'
+const EXPIRY_MINUTES = 60;
+
+export function verifyToken(token, now = Date.now()) {
+  if (!token || !token.issuedAt) return { valid: false, reason: "malformed" };
+  const ageMinutes = (now - token.issuedAt) / 60000;
+  if (ageMinutes > EXPIRY_MINUTES) return { valid: false, reason: "expired" };
+  return { valid: true };
+}
+EOF
+
+cat > out/report.html <<'EOF'
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recap: módulo de autenticación</title>
+<style>:root{--bg:#f8f8f8;--text:#222;--accent:#446}body{background:var(--bg);color:var(--text);font-family:sans-serif;max-width:60ch;margin:2rem auto}h1,h2{color:var(--accent)}</style>
+</head>
+<body>
+<h1>Recap: módulo de autenticación</h1>
+<h2>Validación de sesiones</h2>
+<p>La autenticación valida sesiones con la función <code>validateToken()</code> definida en <code>src/auth.js</code>. Los tokens expiran a los 30 minutos de su emisión.</p>
+<h2>Estados de respuesta</h2>
+<p>La función distingue tokens malformados de tokens expirados mediante el campo <code>reason</code>.</p>
+</body>
+</html>
+EOF

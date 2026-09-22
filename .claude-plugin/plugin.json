@@ -1,0 +1,13 @@
+{
+  "name": "visual-explainer",
+  "version": "0.2.0",
+  "description": "Generate visual explanations as self-contained HTML pages or Slidev decks: diagrams, architecture overviews, diff and plan reviews, project recaps, comparison tables, slide decks, and fact-checking of generated documents.",
+  "author": {
+    "name": "Entaina",
+    "url": "https://github.com/Entaina"
+  },
+  "license": "MIT",
+  "keywords": ["visualization", "diagrams", "slides", "slidev", "mermaid", "review", "storyboard"],
+  "repository": "https://github.com/Entaina/visual-explainer",
+  "homepage": "https://github.com/Entaina/visual-explainer"
+}
