@@ -32,6 +32,8 @@
     "skills/visual-explainer",
     "!skills/visual-explainer/eval",
     ".claude-plugin",
+    "plugin.json",
+    ".agents",
     "README.md",
     "LICENSE"
   ],
