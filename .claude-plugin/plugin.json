@@ -7,7 +7,15 @@
     "url": "https://github.com/Entaina"
   },
   "license": "MIT",
-  "keywords": ["visualization", "diagrams", "slides", "slidev", "mermaid", "review", "storyboard"],
+  "keywords": [
+    "visualization",
+    "diagrams",
+    "slides",
+    "slidev",
+    "mermaid",
+    "review",
+    "storyboard"
+  ],
   "repository": "https://github.com/Entaina/visual-explainer",
   "homepage": "https://github.com/Entaina/visual-explainer"
 }

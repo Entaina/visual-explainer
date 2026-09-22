@@ -10,7 +10,15 @@
   "homepage": "https://github.com/Entaina/visual-explainer",
   "repository": "https://github.com/Entaina/visual-explainer",
   "license": "MIT",
-  "keywords": ["visualization", "diagrams", "slides", "slidev", "mermaid", "review", "storyboard"],
+  "keywords": [
+    "visualization",
+    "diagrams",
+    "slides",
+    "slidev",
+    "mermaid",
+    "review",
+    "storyboard"
+  ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Visual Explainer",
@@ -18,7 +26,10 @@
     "longDescription": "Diagramas, arquitecturas, reviews de diff y de plan, recaps de proyecto, tablas comparativas y decks de slides, entregados como páginas HTML autocontenidas o como proyectos Slidev. Planifica con un storyboard intermedio, aplica temas por tokens y verifica cada entregable con scripts sin dependencias.",
     "developerName": "Entaina",
     "category": "Productivity",
-    "capabilities": ["Read", "Write"],
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
     "websiteURL": "https://github.com/Entaina/visual-explainer",
     "defaultPrompt": [
       "Explica visualmente la arquitectura de este repositorio",
