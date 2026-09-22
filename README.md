@@ -29,10 +29,10 @@ As a Codex plugin, with this repository acting as the marketplace:
 
 ```
 codex plugin marketplace add Entaina/visual-explainer
-codex plugin add visual-explainer@entaina
+codex plugin add visual-explainer@entaina-visual-explainer
 ```
 
-`codex plugin list` shows the status and `codex plugin remove visual-explainer@entaina` uninstalls it. To work off a clone, `codex plugin marketplace add /path/to/clone` does the same locally.
+`codex plugin list` shows the status and `codex plugin remove visual-explainer@entaina-visual-explainer` uninstalls it. To work off a clone, `codex plugin marketplace add /path/to/clone` does the same locally.
 
 This is declared by the portable root manifest (`plugin.json`, [agent-plugins 1.0.0](https://agent-plugins.org/schemas/1.0.0/plugin.schema.json) schema) and the marketplace entry (`.agents/plugins/marketplace.json`). Codex exposes it as the skill `visual-explainer:visual-explainer`.
 

@@ -1,14 +1,14 @@
 {
-  "name": "entaina",
+  "name": "entaina-visual-explainer",
   "interface": {
-    "displayName": "Entaina"
+    "displayName": "Entaina · Visual Explainer"
   },
   "plugins": [
     {
       "name": "visual-explainer",
       "source": {
         "source": "local",
-        "path": "."
+        "path": "./"
       },
       "policy": {
         "installation": "AVAILABLE",

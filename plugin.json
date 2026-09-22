@@ -19,22 +19,25 @@
     "review",
     "storyboard"
   ],
-  "skills": "./skills/",
-  "interface": {
-    "displayName": "Visual Explainer",
-    "shortDescription": "Explicaciones visuales como páginas HTML o decks",
-    "longDescription": "Diagramas, arquitecturas, reviews de diff y de plan, recaps de proyecto, tablas comparativas y decks de slides, entregados como páginas HTML autocontenidas o como proyectos Slidev. Planifica con un storyboard intermedio, aplica temas por tokens y verifica cada entregable con scripts sin dependencias.",
-    "developerName": "Entaina",
-    "category": "Productivity",
-    "capabilities": [
-      "Read",
-      "Write"
-    ],
-    "websiteURL": "https://github.com/Entaina/visual-explainer",
-    "defaultPrompt": [
-      "Explica visualmente la arquitectura de este repositorio",
-      "Hazme un diff-review visual de los cambios de esta rama",
-      "Genera un deck de slides sobre este plan"
-    ]
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Visual Explainer",
+        "shortDescription": "Explicaciones visuales como páginas HTML o decks",
+        "longDescription": "Diagramas, arquitecturas, reviews de diff y de plan, recaps de proyecto, tablas comparativas y decks de slides, entregados como páginas HTML autocontenidas o como proyectos Slidev. Planifica con un storyboard intermedio, aplica temas por tokens y verifica cada entregable con scripts sin dependencias.",
+        "developerName": "Entaina",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://github.com/Entaina/visual-explainer",
+        "defaultPrompt": [
+          "Explica visualmente la arquitectura de este repositorio",
+          "Hazme un diff-review visual de los cambios de esta rama",
+          "Genera un deck de slides sobre este plan"
+        ]
+      }
+    }
   }
 }
