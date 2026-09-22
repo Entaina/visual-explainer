@@ -21,7 +21,7 @@ O directamente desde este repositorio (también es un plugin válido): `/plugin 
 
 ### Claude Cowork
 
-Añade la carpeta `skills/visual-explainer/` como skill desde los ajustes de skills de Cowork (subida de carpeta/zip). Nota: el subárbol `eval/` contiene un symlink que algunos empaquetadores zip no conservan — es utillaje de evaluación, la skill funciona igual sin él.
+Añade la carpeta `skills/visual-explainer/` como skill desde los ajustes de skills de Cowork (subida de carpeta/zip).
 
 ### Codex
 
@@ -69,7 +69,7 @@ No requiere más integración: todo se resuelve con lectura de ficheros y shell.
 - `themes/` — paletas por tokens para páginas y decks HTML, con las variantes de pilar Entaina.
 - `references/` — storyboard (representación intermedia), catálogo de tipos de slide, reglas de evidencia y de reviews.
 - `scripts/` — `render.mjs` (entrega), `check_artifact.mjs` y `check_themes.mjs` (verificación), con tests (`node --test scripts/`).
-- `eval/` — suite de evaluación en formato oficial `claude plugin eval` (early access).
+- `evals/` — casos de evaluación en el [formato de Agent Skills](https://agentskills.io/skill-creation/evaluating-skills): `evals.json` con prompts y assertions, fixtures en `files/`, y el método de ejecución en su README.
 - Manifiestos de instalación: `.claude-plugin/plugin.json` (Claude Code), `plugin.json` + `.agents/plugins/marketplace.json` (Codex) y `package.json` con la clave `pi` (pi).
 
 ## Créditos

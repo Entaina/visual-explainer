@@ -1,0 +1,117 @@
+{
+  "skill_name": "visual-explainer",
+  "evals": [
+    {
+      "id": 1,
+      "name": "diagram-page",
+      "tags": [
+        "core",
+        "page"
+      ],
+      "prompt": "No termino de entender cómo fluye una petición HTTP en nuestra plataforma: hay una CDN delante, luego un API gateway que aplica rate limiting, después el servicio, y una caché Redis que se consulta antes de tocar la base de datos. ¿Me lo puedes explicar visualmente?",
+      "expected_output": "A themed, self-contained HTML page with a diagram of the request path (labeled arrows, cache hit vs. miss), delivered through scripts/render.mjs and validated with scripts/check_artifact.mjs.",
+      "assertions": [
+        "An HTML page file was written to the output directory.",
+        "The transcript shows the visual-explainer skill was loaded (SKILL.md read or the skill invoked).",
+        "The transcript shows check_artifact.mjs reporting that the page passes the page delivery check.",
+        "The diagram traverses the request path CDN → API gateway → service → Redis cache → database, and the cache hit vs. miss distinction is visible.",
+        "Arrows carry labels describing what happens (for example 'rate limit', 'cache miss'), not bare lines.",
+        "The figure has a caption that states a claim about the system, not a title that merely names it.",
+        "The page is themed through CSS custom properties (coherent palette and typography), not browser-default HTML."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "slidev-deck",
+      "tags": [
+        "core",
+        "slidev"
+      ],
+      "prompt": "Monta en este proyecto un deck de Slidev de unas seis diapositivas que explique los tres estados de un fichero en Git (working directory, staging area y repositorio) a desarrolladores junior. Déjalo listo para previsualizar con `npm run slides:dev`.",
+      "expected_output": "A Slidev deck as project source (slides.md plus project wiring, no copied theme styles or local global layers), written after sharing a storyboard, with presenter notes, and validated with check_artifact.mjs --kind slidev.",
+      "assertions": [
+        "A slides.md file was created in the project.",
+        "Before writing slides.md, the assistant shared a storyboard: an inventory of the source topics plus a per-slide mapping to a slide type and composition.",
+        "The transcript shows check_artifact.mjs reporting that the deck passes the slidev delivery check.",
+        "slides.md contains between 4 and 9 slides, each with a presenter note, and the first note states an estimated duration.",
+        "Each of the three Git file states gets real coverage, and at least one slide shows the transitions between them as a figure or visual composition rather than a bullet list.",
+        "Slide layouts vary; not every slide is the default layout with bullets.",
+        "slides.md contains no hardcoded colors; styling is left to the Slidev theme.",
+        "The deck is project source: no theme styles copied into the deck and no local global layers."
+      ]
+    },
+    {
+      "id": 3,
+      "name": "deck-html",
+      "tags": [
+        "core",
+        "deck"
+      ],
+      "prompt": "Prepárame una presentación breve para enviar por email a otro equipo — un único fichero HTML autocontenido, nadie la va a mantener después. Tema: por qué importan los índices compuestos en PostgreSQL — el orden de las columnas, la regla del prefijo, y cuándo un índice no ayuda. Unas seis u ocho diapositivas.",
+      "expected_output": "A self-contained HTML deck (one-shot lifecycle picks the deck-html target over Slidev), built from a shared storyboard and passing check_artifact.mjs --kind deck-html.",
+      "assertions": [
+        "An HTML deck file was written to the output directory.",
+        "A storyboard was shared before the deck was written.",
+        "The transcript shows check_artifact.mjs reporting that the deck passes the deck-html delivery check.",
+        "The Slidev CLI (@slidev/cli) was never invoked: the one-shot lifecycle picked the HTML target.",
+        "The result is a slide deck with viewport-sized slides and navigation, not a scrollable article.",
+        "It has 6 to 8 slides covering composite index column order, the prefix rule, and when an index does not help — each with real content, none dropped to fit.",
+        "Compositions vary across slides, and at least one slide uses a figure, table, or code sample instead of bullets.",
+        "Styling is coherent and token-based (CSS custom properties), with visible navigation chrome (progress, dots, counter or equivalent)."
+      ]
+    },
+    {
+      "id": 4,
+      "name": "table-trigger",
+      "tags": [
+        "edge",
+        "activation"
+      ],
+      "prompt": "Compárame SQLite, PostgreSQL, MySQL y DuckDB en cuatro dimensiones: licencia, modelo de concurrencia, sistema de tipos y caso de uso ideal.",
+      "expected_output": "The 4×4 comparison renders as a semantic HTML table page; the chat reply is a short summary pointing to it, not a terminal table.",
+      "assertions": [
+        "An HTML page file was written to the output directory, even though the user never asked for a page or a diagram.",
+        "The page contains a semantic HTML <table> element.",
+        "The final chat reply is a short prose summary that points the reader to the page for the full comparison.",
+        "The final chat reply does not reproduce the comparison inline as a markdown or ASCII table."
+      ]
+    },
+    {
+      "id": 5,
+      "name": "fact-check",
+      "tags": [
+        "edge",
+        "fact-check"
+      ],
+      "prompt": "Haz un fact-check del documento out/report.html contra el código real de este repositorio y corrígelo donde no diga la verdad.",
+      "expected_output": "out/report.html corrected in place (verifyToken, 60 minutes), original structure preserved, plus a verification summary classifying each checked claim.",
+      "files": [
+        "evals/files/fact-check/src/auth.js",
+        "evals/files/fact-check/out/report.html"
+      ],
+      "assertions": [
+        "The report names the function verifyToken, matching src/auth.js.",
+        "The expiry claim now says 60 minutes, matching EXPIRY_MINUTES in src/auth.js.",
+        "The true claim about the reason field distinguishing malformed from expired tokens was left standing.",
+        "The document's original structure and styling are preserved: it was corrected in place, not rewritten.",
+        "A verification summary was added stating what was checked and what changed, with a verdict per claim (for example verified / corrected)."
+      ]
+    },
+    {
+      "id": 6,
+      "name": "no-activation",
+      "tags": [
+        "negative",
+        "activation"
+      ],
+      "arm": "with_skill",
+      "prompt": "Añade manejo de errores a esta función y devuélveme el código corregido:\n\n```js\nfunction parseConfig(raw) {\n  const config = JSON.parse(raw);\n  return { port: config.port, host: config.host.toLowerCase() };\n}\n```",
+      "expected_output": "The assistant answers with the corrected function directly; the visual-explainer skill is never invoked.",
+      "assertions": [
+        "The reply returns the parseConfig function with error handling added.",
+        "The visual-explainer skill was never invoked: no skill call and no read of its SKILL.md.",
+        "No HTML page, diagram, or deck was produced."
+      ]
+    }
+  ]
+}

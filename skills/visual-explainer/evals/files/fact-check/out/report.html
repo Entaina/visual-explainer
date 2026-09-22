@@ -1,22 +1,3 @@
-#!/usr/bin/env bash
-# Fixture: a tiny codebase plus a generated report containing two false claims
-# (function name and expiry time) for the fact-check genre to correct in place.
-set -euo pipefail
-
-mkdir -p src out
-
-cat > src/auth.js <<'EOF'
-const EXPIRY_MINUTES = 60;
-
-export function verifyToken(token, now = Date.now()) {
-  if (!token || !token.issuedAt) return { valid: false, reason: "malformed" };
-  const ageMinutes = (now - token.issuedAt) / 60000;
-  if (ageMinutes > EXPIRY_MINUTES) return { valid: false, reason: "expired" };
-  return { valid: true };
-}
-EOF
-
-cat > out/report.html <<'EOF'
 <!doctype html>
 <html lang="es">
 <head>
@@ -33,4 +14,3 @@ cat > out/report.html <<'EOF'
 <p>La función distingue tokens malformados de tokens expirados mediante el campo <code>reason</code>.</p>
 </body>
 </html>
-EOF
