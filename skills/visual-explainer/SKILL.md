@@ -5,7 +5,7 @@ license: MIT
 compatibility: Requires Node.js (delivery scripts, Slidev) and a browser to view output. Optional surf-cli for AI image generation, glimpseui for native windows.
 metadata:
   author: eLafo (fork of nicobailon/visual-explainer, MIT)
-  version: "0.2.0" # x-release-please-version
+  version: "0.2.1" # x-release-please-version
 ---
 
 # Visual Explainer
