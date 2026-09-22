@@ -1,0 +1,28 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "packages": {
+    ".": {
+      "release-type": "node",
+      "package-name": "@entaina/visual-explainer",
+      "include-component-in-tag": false,
+      "changelog-path": "CHANGELOG.md",
+      "extra-files": [
+        { "type": "json", "path": "plugin.json", "jsonpath": "$.version" },
+        { "type": "json", "path": ".claude-plugin/plugin.json", "jsonpath": "$.version" },
+        { "type": "generic", "path": "skills/visual-explainer/SKILL.md" }
+      ]
+    }
+  },
+  "changelog-sections": [
+    { "type": "feat", "section": "Novedades" },
+    { "type": "fix", "section": "Correcciones" },
+    { "type": "perf", "section": "Rendimiento" },
+    { "type": "docs", "section": "Documentación" },
+    { "type": "refactor", "section": "Refactors" },
+    { "type": "test", "section": "Evals y tests" },
+    { "type": "build", "section": "Empaquetado" },
+    { "type": "ci", "section": "CI", "hidden": true },
+    { "type": "chore", "section": "Mantenimiento", "hidden": true },
+    { "type": "style", "section": "Estilo", "hidden": true }
+  ]
+}
