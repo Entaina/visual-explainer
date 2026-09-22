@@ -14,5 +14,8 @@ jobs:
     steps:
       - uses: googleapis/release-please-action@v4
         with:
+          # La organización no permite que Actions abra pull requests, así que
+          # release-please actúa con un token personal guardado en el repo.
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
