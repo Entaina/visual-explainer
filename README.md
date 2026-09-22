@@ -1,85 +1,95 @@
 # visual-explainer
 
-Agent Skill de Entaina para generar explicaciones visuales: páginas HTML autocontenidas (diagramas, arquitecturas, diff/plan reviews, recaps, tablas comparativas, decks de slides) y decks Slidev como fuente de proyecto — con storyboard como plan intermedio, temas por tokens y verificación mecánica de cada entregable.
+Entaina's Agent Skill for generating visual explanations: self-contained HTML pages (diagrams, architecture overviews, diff and plan reviews, recaps, comparison tables, slide decks) and Slidev decks as project source — with a storyboard as the intermediate plan, token-based themes, and a mechanical check on every deliverable.
 
-La skill es un directorio plano y portable (`skills/visual-explainer/`): markdown + assets + scripts Node sin dependencias, sin APIs de ningún arnés. Este repositorio la envuelve además como plugin de Claude Code, plugin de Codex y paquete de pi.
+The skill is a flat, portable directory (`skills/visual-explainer/`): markdown + assets + dependency-free Node scripts, with no harness APIs. This repository additionally wraps it as a Claude Code plugin, a Codex plugin, and a pi package.
 
-Es un fork de [nicobailon/visual-explainer](https://github.com/nicobailon/visual-explainer) — ver [Créditos](#créditos).
+It is a fork of [nicobailon/visual-explainer](https://github.com/nicobailon/visual-explainer) — see [Credits](#credits).
 
-## Instalación por arnés
+## Installation by harness
 
 ### Claude Code
 
-Vía el marketplace de Entaina:
+Through Entaina's marketplace:
 
 ```
 /plugin marketplace add Entaina/claude-marketplace
 /plugin install visual-explainer@entaina
 ```
 
-O directamente desde este repositorio (también es un plugin válido): `/plugin install` con la URL del repo.
+Or straight from this repository (it is a valid plugin too): `/plugin install` with the repo URL.
 
 ### Claude Cowork
 
-Añade la carpeta `skills/visual-explainer/` como skill desde los ajustes de skills de Cowork (subida de carpeta/zip).
+Add the `skills/visual-explainer/` folder as a skill from Cowork's skill settings (folder or zip upload).
 
 ### Codex
 
-Como plugin de Codex, con el propio repositorio haciendo de marketplace:
+As a Codex plugin, with this repository acting as the marketplace:
 
 ```
 codex plugin marketplace add Entaina/visual-explainer
 codex plugin add visual-explainer@entaina
 ```
 
-`codex plugin list` muestra el estado y `codex plugin remove visual-explainer@entaina` lo desinstala. Mientras el repositorio no esté publicado, `codex plugin marketplace add /ruta/al/clon` hace lo mismo desde local.
+`codex plugin list` shows the status and `codex plugin remove visual-explainer@entaina` uninstalls it. To work off a clone, `codex plugin marketplace add /path/to/clone` does the same locally.
 
-Lo declaran el manifiesto portable de la raíz (`plugin.json`, esquema [agent-plugins 1.0.0](https://agent-plugins.org/schemas/1.0.0/plugin.schema.json)) y la entrada de marketplace (`.agents/plugins/marketplace.json`). Codex la expone como la skill `visual-explainer:visual-explainer`.
+This is declared by the portable root manifest (`plugin.json`, [agent-plugins 1.0.0](https://agent-plugins.org/schemas/1.0.0/plugin.schema.json) schema) and the marketplace entry (`.agents/plugins/marketplace.json`). Codex exposes it as the skill `visual-explainer:visual-explainer`.
 
 ### pi
 
-Como paquete de pi, directamente desde el repositorio:
+As a pi package, from npm:
+
+```
+pi install npm:@entaina/visual-explainer
+```
+
+Or from the repository, to track `main` instead of the published releases:
 
 ```
 pi install git:github.com/Entaina/visual-explainer
 ```
 
-`pi install` escribe en los ajustes de usuario (`~/.pi/agent/settings.json`); con `-l` instala solo en el proyecto (`.pi/settings.json`). También acepta una ruta local (`pi install ./visual-explainer`) para trabajar sobre un clon, y se desinstala con `pi remove <source>`.
+`pi install` writes to user settings (`~/.pi/agent/settings.json`); `-l` installs into the project only (`.pi/settings.json`). A local path works as well (`pi install ./visual-explainer`), and `pi remove <source>` uninstalls.
 
-El `package.json` de la raíz lleva el manifiesto `pi` que declara la skill, así que pi la carga como `visual-explainer` y la expone como `/skill:visual-explainer [subcomando]` (p. ej. `/skill:visual-explainer diff-review`). Sin instalar el paquete también vale añadir `skills/visual-explainer` al array `skills` de los ajustes, o pasarla en la invocación con `pi --skill skills/visual-explainer`.
+The root `package.json` carries the `pi` manifest that declares the skill, so pi loads it as `visual-explainer` and exposes it as `/skill:visual-explainer [subcommand]` (for example `/skill:visual-explainer diff-review`). Without installing the package you can also add `skills/visual-explainer` to the `skills` array in settings, or pass it per run with `pi --skill skills/visual-explainer`.
 
-### Otros arneses (AGENTS.md)
+### Other harnesses (AGENTS.md)
 
-Copia `skills/visual-explainer/` al repositorio (p. ej. en `skills/`) y añade el disparador a tu `AGENTS.md`:
+Copy `skills/visual-explainer/` into the repository (say, under `skills/`) and add the trigger to your `AGENTS.md`:
 
-> Para diagramas, reviews visuales, recaps, tablas comparativas o slides, lee `skills/visual-explainer/SKILL.md` y síguelo.
+> For diagrams, visual reviews, recaps, comparison tables or slides, read `skills/visual-explainer/SKILL.md` and follow it.
 
-No requiere más integración: todo se resuelve con lectura de ficheros y shell.
+Nothing else to integrate: everything resolves through file reads and the shell.
 
-## Requisitos del entorno
+## Requirements
 
-- Node.js ≥ 18 (scripts de entrega y verificación; Slidev en los proyectos de decks).
-- Navegador para ver las páginas generadas.
-- Opcionales: `surf-cli` (imágenes generadas), `glimpseui` (ventana nativa).
+- Node.js ≥ 18 (delivery and check scripts; Slidev in deck projects).
+- A browser to view the generated pages.
+- Optional: `surf-cli` (generated images), `glimpseui` (native window).
 
-## Estructura
+## Layout
 
-- `genres/` — contratos de contenido por tipo de salida (diagram, diff-review, plan-review, recap, visual-plan, deck, fact-check).
-- `targets/` — entrega: página HTML, deck HTML, deck Slidev (este último tematizado por el proyecto destino; el look Entaina para Slidev vive en [`slidev-theme-entaina`](https://github.com/Entaina/slidev-theme-entaina)).
-- `themes/` — paletas por tokens para páginas y decks HTML, con las variantes de pilar Entaina.
-- `references/` — storyboard (representación intermedia), catálogo de tipos de slide, reglas de evidencia y de reviews.
-- `scripts/` — `render.mjs` (entrega), `check_artifact.mjs` y `check_themes.mjs` (verificación), con tests (`node --test scripts/`).
-- `evals/` — casos de evaluación en el [formato de Agent Skills](https://agentskills.io/skill-creation/evaluating-skills): `evals.json` con prompts y assertions, fixtures en `files/`, y el método de ejecución en su README.
-- Manifiestos de instalación: `.claude-plugin/plugin.json` (Claude Code), `plugin.json` + `.agents/plugins/marketplace.json` (Codex) y `package.json` con la clave `pi` (pi).
+- `genres/` — content contracts per kind of output (diagram, diff-review, plan-review, recap, visual-plan, deck, fact-check).
+- `targets/` — delivery: HTML page, HTML deck, Slidev deck (the last one themed by the destination project; the Entaina look for Slidev lives in [`slidev-theme-entaina`](https://github.com/Entaina/slidev-theme-entaina)).
+- `themes/` — token-based palettes for pages and HTML decks, including the Entaina pillar variants.
+- `references/` — storyboard (the intermediate representation), slide-type catalogue, evidence and review rules.
+- `scripts/` — `render.mjs` (delivery), `check_artifact.mjs` and `check_themes.mjs` (verification), with tests (`node --test scripts/`).
+- `evals/` — evaluation cases in the [Agent Skills format](https://agentskills.io/skill-creation/evaluating-skills): `evals.json` with prompts and assertions, fixtures under `files/`, and the method to run them in its README.
+- Installation manifests: `.claude-plugin/plugin.json` (Claude Code), `plugin.json` + `.agents/plugins/marketplace.json` (Codex), and `package.json` with the `pi` key (pi).
 
-## Créditos
+## Releases
 
-Trabajo derivado de [**nicobailon/visual-explainer**](https://github.com/nicobailon/visual-explainer), de Nico Bailon: de ahí vienen la idea de la skill, su repertorio de géneros visuales (diagramas, diff/plan reviews, recaps, decks, fact-check) y la base sobre la que se escribió esta versión. Gracias por publicarla con licencia MIT.
+Versioning is automated with [release-please](https://github.com/googleapis/release-please) from [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). A `feat:` or `fix:` commit on `main` opens a release pull request carrying the CHANGELOG and the version bump across all four manifests (`package.json`, `plugin.json`, `.claude-plugin/plugin.json`, and the `version` line in `SKILL.md`); merging it publishes the tag, the GitHub release, and the npm package.
 
-Esta versión la reescribe y mantiene Entaina: la reorganiza en torno a los tres ejes género × target × tema, introduce el storyboard como plan intermedio entre contenido y formato, añade los temas por tokens (con las variantes de pilar Entaina) y el target Slidev, y sustituye la verificación por scripts Node sin dependencias más una suite de evaluación. Las diferencias de empaquetado y de instalación por arnés también son propias.
+## Credits
 
-El aviso de copyright original (© 2025 Nico Bailon) se conserva en [`LICENSE`](LICENSE) y en [`skills/visual-explainer/LICENSE`](skills/visual-explainer/LICENSE).
+Derivative work of [**nicobailon/visual-explainer**](https://github.com/nicobailon/visual-explainer), by Nico Bailon: the idea of the skill, its repertoire of visual genres (diagrams, diff and plan reviews, recaps, decks, fact-check) and the base this version was written on all come from there. Thanks for publishing it under MIT.
 
-## Licencia
+This version is rewritten and maintained by Entaina: reorganized around the three axes genre × target × theme, with the storyboard introduced as the intermediate plan between content and format, token-based themes added (including the Entaina pillar variants) along with the Slidev target, and verification replaced by dependency-free Node scripts plus an eval suite. The packaging and per-harness installation differences are ours too.
 
-MIT, como el proyecto original.
+The original copyright notice (© 2025 Nico Bailon) is preserved in [`LICENSE`](LICENSE) and [`skills/visual-explainer/LICENSE`](skills/visual-explainer/LICENSE).
+
+## License
+
+MIT, like the original project.
